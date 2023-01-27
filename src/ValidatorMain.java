@@ -37,7 +37,7 @@ public class ValidatorMain {
 
                     try {
                         pageText = readCompleteFileOrURL(url);
-                        Queue<HtmlTag> tags = HtmlTag.tokenize(pageText);
+                        Queue<HtmlTags> tags = HtmlTags.tokenize(pageText);
 
                         // create the HTML validator
                         validator = new HtmlValidator(tags);
@@ -60,7 +60,7 @@ public class ValidatorMain {
                 if (element.contains("!--")) {
                     element = "!--";  // HTML comments
                 }
-                HtmlTag tag = new HtmlTag(element, isOpenTag);
+                HtmlTags tag = new HtmlTags(element, isOpenTag);
                 validator.addTag(tag);
             } else if (choice.startsWith("g")) {
                 System.out.println(validator.getTags());
